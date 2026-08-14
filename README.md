@@ -53,12 +53,12 @@ AUTH_TOKEN=your_jwt_here python3 scripts/load_test_simulation.py
 
 ```mermaid
 flowchart LR
-  Client -->|HTTPS| GW[Spring Cloud Gateway]
-  GW --> AuthFilter[Auth Filter / JWT Validation]
-  AuthFilter --> Product[Product Service (catalog)]
-  AuthFilter --> Order[Order Service (transactions)]
-  Product --> PostgresProduct[(PostgreSQL)]
-  Order --> PostgresOrder[(PostgreSQL)]
+    Client["Client"] -->|HTTPS| GW["Spring Cloud Gateway"]
+    GW --> AuthFilter["Auth Filter / JWT Validation"]
+    AuthFilter --> Product["Product Service - Catalog"]
+    AuthFilter --> Order["Order Service - Transactions"]
+    Product --> PostgresProduct["PostgreSQL - Product DB"]
+    Order --> PostgresOrder["PostgreSQL - Order DB"]
 ```
 
 **Notes on Implementation**
